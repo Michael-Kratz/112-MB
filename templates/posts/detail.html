@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Post Detail
+Post Details
 {% endblock %}
 
 {% block content %}
-    <h1>Post Detail</h1>
     <div>
         <h1>{{ detailed.title }}</h1>
+        <h4>{{ detailed.subtitle }}</h4>
         <p>{{ detailed.body }}</p>
-        <span><strong>Author: {{ detailed.author }}</strong></span>
+        <span> {{ detailed.created_on }}</span>
+        <span>{{ detailed.author }}</span>
+        <br/>
+        <a href="{% url 'post_edit' detailed.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'post_delete' detailed.id %}" class="btn btn-danger">Delete</a>
     </div>
 {% endblock %}
